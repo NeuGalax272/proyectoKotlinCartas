@@ -1,5 +1,3 @@
-import kotlin.random.Random
-
 fun leerSemilla(): Long? {
     while (true) {
         print("Semilla (vacío = aleatoria): ")
@@ -36,7 +34,7 @@ fun main() {
     verificarMazos()
 
     val semilla = leerSemilla()
-    val proveedor: generarMazo = MazoAleatorio(semilla)
+    val proveedor: GeneradorDeMazo = MazoAleatorio(semilla)
     val mazo = proveedor.nuevoMazo()
 
     println(if (semilla == null) "Mazo aleatorio" else "Mazo con semilla $semilla")
