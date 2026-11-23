@@ -1,3 +1,5 @@
+package poker.modelo
+
 import kotlin.random.Random
 
 interface GeneradorDeMazo {

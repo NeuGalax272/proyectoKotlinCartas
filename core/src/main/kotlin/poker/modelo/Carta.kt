@@ -1,3 +1,5 @@
+package poker.modelo
+
 enum class Palo(val simbolo: String) {
     CORAZONES("♥"), DIAMANTES("♦"), TREBOLES("♣"), PICAS("♠")
 }

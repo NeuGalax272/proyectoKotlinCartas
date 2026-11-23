@@ -1,3 +1,9 @@
+package poker.evaluacion
+
+import poker.modelo.Carta
+import poker.modelo.Palo
+import poker.modelo.Rango
+
 enum class Categoria(val nombre: String) {
     CARTA_ALTA("Carta alta"),
     PAR("Par"),

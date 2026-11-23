@@ -1,3 +1,11 @@
+package poker
+
+import poker.modelo.Carta
+import poker.modelo.GeneradorDeMazo
+import poker.modelo.MazoAleatorio
+import poker.modelo.MazoFijo
+import poker.modelo.mazoOrdenado
+
 fun leerSemilla(): Long? {
     while (true) {
         print("Semilla (vacío = aleatoria): ")
