@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -101,12 +101,12 @@ fun PantallaPrincipal(
         ) {
             if (esLandscape) {
                 // Layout Horizontal (Landscape): Mesa a la izquierda, Panel de acciones a la derecha
-                Row(modifier = Modifier.fillMaxSize()) {
+                Row(modifier = Modifier.fillMaxSize().padding(horizontal = 4.dp)) {
                     // Mesa de póker ocupando el espacio principal
                     Box(
                         modifier = Modifier
                             .weight(1f)
-                            .padding(4.dp),
+                            .padding(8.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         MesaView(
@@ -114,7 +114,6 @@ fun PantallaPrincipal(
                             comunitarias = mano.comunitarias,
                             bote = mano.bote,
                             calleEtiqueta = mano.calle.etiqueta,
-                            variante = mano.variante,
                             dealerIndex = mano.dealerIndex,
                             turnoActual = mano.turnoActual,
                             mostrarCartasRival = mano.manoTerminada,
@@ -125,8 +124,9 @@ fun PantallaPrincipal(
                     // Panel lateral de acciones
                     Box(
                         modifier = Modifier
-                            .width(300.dp)
-                            .padding(4.dp),
+                            .fillMaxWidth(0.38f)
+                            .fillMaxHeight()
+                            .padding(8.dp),
                         contentAlignment = Alignment.BottomCenter
                     ) {
                         PanelAccionesView(
@@ -142,11 +142,12 @@ fun PantallaPrincipal(
                 }
             } else {
                 // Layout Vertical (Portrait): Mesa en el centro, Panel de acciones abajo
-                Column(modifier = Modifier.fillMaxSize()) {
+                Column(modifier = Modifier.fillMaxSize().padding(horizontal = 12.dp, vertical = 8.dp)) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .weight(1f),
+                            .weight(1f)
+                            .padding(bottom = 8.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         MesaView(
@@ -154,7 +155,6 @@ fun PantallaPrincipal(
                             comunitarias = mano.comunitarias,
                             bote = mano.bote,
                             calleEtiqueta = mano.calle.etiqueta,
-                            variante = mano.variante,
                             dealerIndex = mano.dealerIndex,
                             turnoActual = mano.turnoActual,
                             mostrarCartasRival = mano.manoTerminada,

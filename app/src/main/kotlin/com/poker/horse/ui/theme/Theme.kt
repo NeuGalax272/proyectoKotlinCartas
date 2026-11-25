@@ -3,25 +3,24 @@ package com.poker.horse.ui.theme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
     primary = OroFichas,
-    secondary = VerdeMesaClaro,
-    tertiary = AzulCheck,
+    onPrimary = FondoOscuro,
+    secondary = TextoSecundario,
+    onSecondary = FondoOscuro,
     background = FondoOscuro,
+    onBackground = MarfilCarta,
     surface = SuperficieOscura,
-    onPrimary = Color.Black,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color.White,
-    onSurface = Color.White
+    onSurface = MarfilCarta,
+    surfaceVariant = SuperficieVariante,
+    onSurfaceVariant = TextoSecundario,
+    outline = BordeMesa,
+    outlineVariant = LineaSuperficie
 )
 
 @Composable
-fun PokerHorseTheme(
-    content: @Composable () -> Unit
-) {
+fun PokerHorseTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = DarkColorScheme,
         content = content

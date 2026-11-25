@@ -2,23 +2,25 @@ package com.poker.horse.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val VerdeMesa = Color(0xFF135D38)
-val VerdeMesaOscuro = Color(0xFF0A3620)
-val VerdeMesaClaro = Color(0xFF1B7A4B)
-val BordeMadera = Color(0xFF3E2723)
-val BordeMaderaOscuro = Color(0xFF1B0000)
+val VerdeMesa = Color(0xFF143B34)
+val VerdeMesaOscuro = Color(0xFF102923)
+val VerdeMesaClaro = Color(0xFF205446)
+val BordeMesa = Color(0xFF507363)
 
-val OroFichas = Color(0xFFFFC107)
-val OroClaro = Color(0xFFFFD54F)
-val RojoCarta = Color(0xFFD32F2F)
-val NegroCarta = Color(0xFF212121)
+val OroFichas = Color(0xFFEAC687)
+val OroClaro = Color(0xFFFFDFAB)
+val RojoCarta = Color(0xFFAD303D)
+val NegroCarta = Color(0xFF182921)
+val MarfilCarta = Color(0xFFFFF6E5)
 
-val FondoOscuro = Color(0xFF121212)
-val SuperficieOscura = Color(0xFF1E1E1E)
-val SuperficieVariante = Color(0xFF2C2C2C)
+val FondoOscuro = Color(0xFF091511)
+val SuperficieOscura = Color(0xFF12231D)
+val SuperficieVariante = Color(0xFF20362D)
+val LineaSuperficie = Color(0xFF385349)
+val TextoSecundario = Color(0xFFB4C9BD)
 
-val AzulCheck = Color(0xFF0288D1)
-val VerdeCall = Color(0xFF2E7D32)
-val NaranjaBet = Color(0xFFEF6C00)
-val MoradoAllIn = Color(0xFF7B1FA2)
-val RojoFold = Color(0xFFC62828)
+val AzulCheck = SuperficieVariante
+val VerdeCall = Color(0xFF285B48)
+val NaranjaBet = OroFichas
+val MoradoAllIn = Color(0xFF47374E)
+val RojoFold = Color(0xFF592E36)

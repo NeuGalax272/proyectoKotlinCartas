@@ -6,11 +6,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -31,6 +29,9 @@ import androidx.compose.ui.unit.sp
 import com.poker.horse.ui.theme.OroClaro
 import com.poker.horse.ui.theme.OroFichas
 import com.poker.horse.ui.theme.SuperficieOscura
+import com.poker.horse.ui.theme.SuperficieVariante
+import com.poker.horse.ui.theme.LineaSuperficie
+import com.poker.horse.ui.theme.TextoSecundario
 import poker.modelo.Variante
 
 @Composable
@@ -50,26 +51,26 @@ fun HorseHeaderBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp, vertical = 4.dp),
+                .padding(horizontal = 12.dp, vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // Indicador de rotación HORSE (H O R S E)
             Row(
+                modifier = Modifier.weight(1f),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(3.dp)
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Variante.entries.forEach { v ->
                     val esActual = v == varianteActual
                     Box(
                         modifier = Modifier
-                            .size(24.dp)
-                            .clip(RoundedCornerShape(5.dp))
-                            .background(if (esActual) OroFichas else Color(0xFF2A2A2A))
+                            .size(21.dp)
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(if (esActual) OroFichas else SuperficieVariante)
                             .border(
                                 width = if (esActual) 1.5.dp else 1.dp,
-                                color = if (esActual) OroClaro else Color(0xFF444444),
-                                shape = RoundedCornerShape(5.dp)
+                                color = if (esActual) OroClaro else LineaSuperficie,
+                                shape = RoundedCornerShape(6.dp)
                             ),
                         contentAlignment = Alignment.Center
                     ) {
@@ -77,14 +78,12 @@ fun HorseHeaderBar(
                             text = v.sigla.toString(),
                             fontWeight = FontWeight.Black,
                             fontSize = 12.sp,
-                            color = if (esActual) Color.Black else Color.Gray
+                            color = if (esActual) Color.Black else TextoSecundario
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.width(6.dp))
-
-                Column {
+                Column(Modifier.padding(start = 6.dp)) {
                     Text(
                         text = varianteActual.nombreCompleto,
                         fontWeight = FontWeight.Bold,
@@ -95,7 +94,7 @@ fun HorseHeaderBar(
                     )
                     Text(
                         text = "Mano $manoEnVariante de $manosPorVariante",
-                        color = Color.LightGray,
+                        color = TextoSecundario,
                         fontSize = 10.sp
                     )
                 }
@@ -103,7 +102,7 @@ fun HorseHeaderBar(
 
             // Botones de información y configuración
             Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onAbrirReglas, modifier = Modifier.size(36.dp)) {
+                IconButton(onClick = onAbrirReglas, modifier = Modifier.size(44.dp)) {
                     Icon(
                         imageVector = Icons.Default.Info,
                         contentDescription = "Reglas de la variante",
@@ -111,7 +110,7 @@ fun HorseHeaderBar(
                         modifier = Modifier.size(20.dp)
                     )
                 }
-                IconButton(onClick = onAbrirConfiguracion, modifier = Modifier.size(36.dp)) {
+                IconButton(onClick = onAbrirConfiguracion, modifier = Modifier.size(44.dp)) {
                     Icon(
                         imageVector = Icons.Default.Settings,
                         contentDescription = "Configuración de partida",

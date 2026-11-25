@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -47,21 +50,23 @@ fun ShowdownOverlay(
             colors = CardDefaults.cardColors(containerColor = SuperficieOscura),
             elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
             modifier = Modifier
-                .fillMaxWidth(0.92f)
-                .border(2.dp, OroClaro, RoundedCornerShape(16.dp))
+                .widthIn(max = 400.dp)
+                .fillMaxWidth()
+                .border(1.dp, OroClaro, RoundedCornerShape(16.dp))
         ) {
             Column(
                 modifier = Modifier
                     .background(
                         Brush.verticalGradient(
-                            listOf(Color(0xFF263238), Color(0xFF102027))
+                            listOf(Color(0xFF20362D), SuperficieOscura)
                         )
                     )
-                    .padding(20.dp),
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "🏆 ¡RESULTADO DE LA MANO! 🏆",
+                    text = "Resultado de la mano",
                     color = OroFichas,
                     fontSize = 17.sp,
                     fontWeight = FontWeight.Black,
@@ -80,7 +85,7 @@ fun ShowdownOverlay(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = "${g.jugador.nombre} gana +$${g.montoGanado} 🪙",
+                            text = "${g.jugador.nombre} gana +$${g.montoGanado}",
                             color = if (g.jugador.esHumano) Color(0xFF81C784) else Color.White,
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp
@@ -103,7 +108,7 @@ fun ShowdownOverlay(
                     modifier = Modifier.fillMaxWidth(0.8f).height(48.dp)
                 ) {
                     Text(
-                        text = "Siguiente Mano ➔",
+                        text = "Siguiente mano",
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.White

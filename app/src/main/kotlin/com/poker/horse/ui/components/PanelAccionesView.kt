@@ -1,7 +1,10 @@
 package com.poker.horse.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.poker.horse.ui.theme.AzulCheck
@@ -32,6 +36,10 @@ import com.poker.horse.ui.theme.OroFichas
 import com.poker.horse.ui.theme.RojoFold
 import com.poker.horse.ui.theme.SuperficieOscura
 import com.poker.horse.ui.theme.VerdeCall
+import com.poker.horse.ui.theme.LineaSuperficie
+import com.poker.horse.ui.theme.MarfilCarta
+import com.poker.horse.ui.theme.SuperficieVariante
+import com.poker.horse.ui.theme.TextoSecundario
 import poker.modelo.Accion
 import poker.modelo.Jugador
 
@@ -50,7 +58,8 @@ fun PanelAccionesView(
         Surface(
             modifier = modifier.fillMaxWidth(),
             color = SuperficieOscura.copy(alpha = 0.95f),
-            shape = RoundedCornerShape(12.dp)
+            shape = RoundedCornerShape(16.dp),
+            border = BorderStroke(1.dp, LineaSuperficie)
         ) {
             BoxLoadingTurno()
         }
@@ -76,14 +85,21 @@ fun PanelAccionesView(
     Surface(
         modifier = modifier.fillMaxWidth(),
         color = SuperficieOscura,
-        shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.dp, LineaSuperficie),
         shadowElevation = 8.dp
     ) {
         Column(
             modifier = Modifier.padding(if (esLandscape) 8.dp else 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Slider y Botones Rápidos
+            Text(
+                text = "Tu turno",
+                modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp),
+                color = MarfilCarta,
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp
+            )
             if ((tieneBet || tieneRaise) && pilaHumano > aIgualar) {
                 val minMonto = if (tieneBet) {
                     accionesLegales.filterIsInstance<Accion.Bet>().first().monto
@@ -98,20 +114,20 @@ fun PanelAccionesView(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-                        text = "Monto: $$montoSeleccionado",
+                        text = "Monto",
                         color = OroFichas,
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                        BotonRapido("Min") { montoSeleccionado = minMonto }
+                        BotonRapido("Mín.") { montoSeleccionado = minMonto }
                         BotonRapido("1/2 Bote") {
                             montoSeleccionado = maxOf(minMonto, minOf(maxMonto, boteTotal / 2))
                         }
                         BotonRapido("Bote") {
                             montoSeleccionado = maxOf(minMonto, minOf(maxMonto, boteTotal))
                         }
-                        BotonRapido("Max") { montoSeleccionado = maxMonto }
+                        BotonRapido("Máx.") { montoSeleccionado = maxMonto }
                     }
                 }
 
@@ -137,7 +153,7 @@ fun PanelAccionesView(
                 val accionFold = accionesLegales.firstOrNull { it is Accion.Fold }
                 if (accionFold != null) {
                     BotonAccion(
-                        texto = "NO IR\n(Fold)",
+                        texto = "Retirarse",
                         color = RojoFold,
                         modifier = Modifier.weight(1f)
                     ) {
@@ -149,7 +165,7 @@ fun PanelAccionesView(
                 val accionCheck = accionesLegales.firstOrNull { it is Accion.Check }
                 if (accionCheck != null) {
                     BotonAccion(
-                        texto = "PASAR\n(Check)",
+                        texto = "Pasar",
                         color = AzulCheck,
                         modifier = Modifier.weight(1f)
                     ) {
@@ -161,7 +177,7 @@ fun PanelAccionesView(
                 val accionCall = accionesLegales.firstOrNull { it is Accion.Call }
                 if (accionCall != null) {
                     BotonAccion(
-                        texto = "IGUALAR\n$${(accionCall as Accion.Call).monto}",
+                        texto = "Igualar\n$${(accionCall as Accion.Call).monto}",
                         color = VerdeCall,
                         modifier = Modifier.weight(1f)
                     ) {
@@ -172,7 +188,7 @@ fun PanelAccionesView(
                 // BET / RAISE
                 if (tieneBet) {
                     BotonAccion(
-                        texto = "APOSTAR\n$$montoSeleccionado",
+                        texto = "Apostar\n$$montoSeleccionado",
                         color = NaranjaBet,
                         modifier = Modifier.weight(1.2f)
                     ) {
@@ -180,7 +196,7 @@ fun PanelAccionesView(
                     }
                 } else if (tieneRaise) {
                     BotonAccion(
-                        texto = "SUBIR A\n$$montoSeleccionado",
+                        texto = "Subir\n$$montoSeleccionado",
                         color = NaranjaBet,
                         modifier = Modifier.weight(1.2f)
                     ) {
@@ -188,11 +204,11 @@ fun PanelAccionesView(
                     }
                 }
 
-                // ALL-IN
+                // All-in
                 val accionAllIn = accionesLegales.firstOrNull { it is Accion.AllIn }
                 if (accionAllIn != null) {
                     BotonAccion(
-                        texto = "ALL-IN\n$${pilaHumano}",
+                        texto = "All-in\n$${pilaHumano}",
                         color = MoradoAllIn,
                         modifier = Modifier.weight(1f)
                     ) {
@@ -213,8 +229,8 @@ private fun BoxLoadingTurno() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "⏳ Esperando jugada de rivales...",
-            color = Color.LightGray,
+            text = "Esperando a los rivales",
+            color = TextoSecundario,
             fontSize = 13.sp,
             fontWeight = FontWeight.Medium
         )
@@ -231,12 +247,14 @@ private fun BotonAccion(
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = color),
-        shape = RoundedCornerShape(8.dp),
-        modifier = modifier.height(48.dp)
+        shape = RoundedCornerShape(10.dp),
+        contentPadding = PaddingValues(horizontal = 2.dp, vertical = 6.dp),
+        modifier = modifier.heightIn(min = 48.dp)
     ) {
         Text(
             text = texto,
-            color = Color.White,
+            color = if (color == NaranjaBet) Color.Black else MarfilCarta,
+            textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,
             fontSize = 11.sp,
             lineHeight = 12.sp,
@@ -252,7 +270,7 @@ private fun BotonRapido(
 ) {
     Surface(
         onClick = onClick,
-        color = Color(0xFF333333),
+        color = SuperficieVariante,
         shape = RoundedCornerShape(4.dp)
     ) {
         Text(
@@ -260,7 +278,7 @@ private fun BotonRapido(
             color = Color.White,
             fontSize = 10.sp,
             fontWeight = FontWeight.Medium,
-            modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
+            modifier = Modifier.padding(horizontal = 6.dp, vertical = 6.dp)
         )
     }
 }

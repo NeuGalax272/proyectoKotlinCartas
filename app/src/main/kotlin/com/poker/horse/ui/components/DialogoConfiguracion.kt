@@ -53,7 +53,7 @@ fun DialogoConfiguracion(
         containerColor = SuperficieOscura,
         title = {
             Text(
-                text = "Configuración de Partida",
+                text = "Configurar partida",
                 color = OroFichas,
                 fontWeight = FontWeight.Bold
             )
@@ -65,7 +65,7 @@ fun DialogoConfiguracion(
                     .verticalScroll(rememberScrollState())
             ) {
                 Text(
-                    text = "Seleccionar Variante:",
+                    text = "Variante",
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp
@@ -94,13 +94,13 @@ fun DialogoConfiguracion(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Semilla del Mazo (Reproducibilidad):",
+                    text = "Semilla del mazo",
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp
                 )
                 Text(
-                    text = "Permite reproducir exactamente las mismas manos sin azar para pruebas y defensa.",
+                    text = "Usa la misma semilla para repetir el reparto.",
                     color = Color.LightGray,
                     fontSize = 11.sp
                 )
@@ -110,7 +110,7 @@ fun DialogoConfiguracion(
                 OutlinedTextField(
                     value = textoSemilla,
                     onValueChange = { textoSemilla = it.filter { char -> char.isDigit() } },
-                    label = { Text("Semilla numérica (vacío = aleatorio)") },
+                    label = { Text("Número de semilla") },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
@@ -125,7 +125,7 @@ fun DialogoConfiguracion(
                         contentColor = if (reiniciarFichas) OroFichas else Color.LightGray
                     )
                 ) {
-                    Text(if (reiniciarFichas) "✓ Reiniciar Fichas a $1000" else "Reiniciar Fichas a $1000")
+                    Text(if (reiniciarFichas) "✓ Reiniciar fichas a $1000" else "Reiniciar fichas a $1000")
                 }
             }
         },
@@ -158,7 +158,7 @@ fun DialogoReglas(
         containerColor = SuperficieOscura,
         title = {
             Text(
-                text = "Reglas: ${variante.nombreCompleto}",
+                text = "${variante.nombreCompleto}",
                 color = OroFichas,
                 fontWeight = FontWeight.Bold
             )
