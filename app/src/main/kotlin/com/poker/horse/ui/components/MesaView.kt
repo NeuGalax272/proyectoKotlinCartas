@@ -12,9 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -66,10 +64,10 @@ fun MesaView(
         val maxAncho = maxWidth
         val maxAlto = maxHeight
 
-        // Tapete Verde de la Mesa de Póker con reborde de madera
+        // Tapete Verde de la Mesa de Póker Ovalada con reborde de madera
         Box(
             modifier = Modifier
-                .fillMaxSize(if (esLandscape) 0.95f else 0.98f)
+                .fillMaxSize(if (esLandscape) 0.96f else 0.98f)
                 .shadow(16.dp, RoundedCornerShape(percent = 45))
                 .clip(RoundedCornerShape(percent = 45))
                 .background(
@@ -77,7 +75,7 @@ fun MesaView(
                         colors = listOf(BordeMadera, BordeMaderaOscuro)
                     )
                 )
-                .padding(10.dp)
+                .padding(8.dp)
                 .clip(RoundedCornerShape(percent = 42))
                 .background(
                     Brush.radialGradient(
@@ -90,13 +88,14 @@ fun MesaView(
             // Centro de la mesa: Bote, Cartas Comunitarias, Calle
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier.padding(vertical = 12.dp)
             ) {
                 // Etiqueta de la variante y calle
                 Text(
-                    text = "${variante.sigla} - $calleEtiqueta",
-                    color = Color.White.copy(alpha = 0.6f),
-                    fontSize = 11.sp,
+                    text = "${variante.sigla} • $calleEtiqueta",
+                    color = Color.White.copy(alpha = 0.7f),
+                    fontSize = if (esLandscape) 10.sp else 11.sp,
                     fontWeight = FontWeight.Bold
                 )
 
@@ -106,14 +105,14 @@ fun MesaView(
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(12.dp))
-                        .background(Color(0x99000000))
-                        .border(1.dp, OroFichas, RoundedCornerShape(12.dp))
-                        .padding(horizontal = 10.dp, vertical = 3.dp)
+                        .background(Color(0xBB000000))
+                        .border(1.5.dp, OroFichas, RoundedCornerShape(12.dp))
+                        .padding(horizontal = 12.dp, vertical = 3.dp)
                 ) {
                     Text(
                         text = "BOTE: $$bote 🪙",
                         color = OroFichas,
-                        fontSize = 13.sp,
+                        fontSize = if (esLandscape) 12.sp else 13.sp,
                         fontWeight = FontWeight.ExtraBold
                     )
                 }
@@ -129,56 +128,54 @@ fun MesaView(
                             CartaView(
                                 carta = carta,
                                 visible = true,
-                                ancho = if (esLandscape) 42.dp else 38.dp,
-                                alto = if (esLandscape) 58.dp else 52.dp
+                                ancho = if (esLandscape) 38.dp else 36.dp,
+                                alto = if (esLandscape) 54.dp else 50.dp
                             )
                         }
                     }
                 }
 
-                // Evaluación actual de la mano del usuario (si está disponible)
+                // Evaluación de mano del humano
                 if (evaluacionHumano != null) {
                     Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = evaluacionHumano,
-                        color = OroClaro,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(Color(0x88000000))
+                            .padding(horizontal = 8.dp, vertical = 2.dp)
+                    ) {
+                        Text(
+                            text = evaluacionHumano,
+                            color = OroClaro,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
                 }
             }
 
-            // Rivales distribuidos
-            if (esLandscape) {
-                // Modo Horizontal: Rivales en curva superior, izquierda y derecha
-                DistribucionLandscape(
-                    rivales = rivales,
-                    dealerAsiento = dealerAsiento,
-                    turnoActual = turnoActual,
-                    mostrarCartasRival = mostrarCartasRival
-                )
-            } else {
-                // Modo Vertical: Rivales en fila/arco superior
-                DistribucionPortrait(
-                    rivales = rivales,
-                    dealerAsiento = dealerAsiento,
-                    turnoActual = turnoActual,
-                    mostrarCartasRival = mostrarCartasRival
-                )
-            }
+            // Distribución responsiva de rivales en la mesa
+            DistribucionRivales(
+                rivales = rivales,
+                dealerAsiento = dealerAsiento,
+                turnoActual = turnoActual,
+                mostrarCartasRival = mostrarCartasRival,
+                esLandscape = esLandscape
+            )
 
-            // Asiento del jugador humano (Abajo al centro)
+            // Asiento del jugador humano (Parte inferior)
             if (humano != null) {
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
-                        .padding(bottom = 6.dp)
+                        .padding(bottom = 4.dp)
                 ) {
                     JugadorSeatView(
                         jugador = humano,
                         esTurnoActual = (turnoActual == humano.asiento),
                         esDealer = (dealerAsiento == humano.asiento),
-                        mostrarCartasPrivadas = true
+                        mostrarCartasPrivadas = true,
+                        esCompacto = esLandscape
                     )
                 }
             }
@@ -187,61 +184,95 @@ fun MesaView(
 }
 
 @Composable
-private fun DistribucionPortrait(
+private fun DistribucionRivales(
     rivales: List<Jugador>,
     dealerAsiento: Int?,
     turnoActual: Int?,
-    mostrarCartasRival: Boolean
+    mostrarCartasRival: Boolean,
+    esLandscape: Boolean
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
-        // Rivales superiores
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.TopCenter)
-                .padding(top = 10.dp, start = 8.dp, end = 8.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.Top
-        ) {
-            rivales.forEach { rival ->
-                JugadorSeatView(
-                    jugador = rival,
-                    esTurnoActual = (turnoActual == rival.asiento),
-                    esDealer = (dealerAsiento == rival.asiento),
-                    mostrarCartasPrivadas = mostrarCartasRival
-                )
+        when (rivales.size) {
+            1 -> {
+                // 1 rival: Centro superior
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .padding(top = 6.dp)
+                ) {
+                    SeatRival(rivales[0], dealerAsiento, turnoActual, mostrarCartasRival, esLandscape)
+                }
+            }
+            2 -> {
+                // 2 rivales: Arriba izquierda y Arriba derecha
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(top = 10.dp, start = 12.dp)
+                ) {
+                    SeatRival(rivales[0], dealerAsiento, turnoActual, mostrarCartasRival, esLandscape)
+                }
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(top = 10.dp, end = 12.dp)
+                ) {
+                    SeatRival(rivales[1], dealerAsiento, turnoActual, mostrarCartasRival, esLandscape)
+                }
+            }
+            else -> {
+                // 3 o más rivales: Izquierda, Centro Superior, Derecha
+                val rivalIzquierda = rivales.getOrNull(0)
+                val rivalCentro = rivales.getOrNull(1)
+                val rivalDerecha = rivales.getOrNull(2)
+
+                if (rivalIzquierda != null) {
+                    Box(
+                        modifier = Modifier
+                            .align(if (esLandscape) Alignment.CenterStart else Alignment.TopStart)
+                            .padding(start = 6.dp, top = if (esLandscape) 0.dp else 8.dp)
+                    ) {
+                        SeatRival(rivalIzquierda, dealerAsiento, turnoActual, mostrarCartasRival, esLandscape)
+                    }
+                }
+
+                if (rivalCentro != null) {
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .padding(top = 6.dp)
+                    ) {
+                        SeatRival(rivalCentro, dealerAsiento, turnoActual, mostrarCartasRival, esLandscape)
+                    }
+                }
+
+                if (rivalDerecha != null) {
+                    Box(
+                        modifier = Modifier
+                            .align(if (esLandscape) Alignment.CenterEnd else Alignment.TopEnd)
+                            .padding(end = 6.dp, top = if (esLandscape) 0.dp else 8.dp)
+                    ) {
+                        SeatRival(rivalDerecha, dealerAsiento, turnoActual, mostrarCartasRival, esLandscape)
+                    }
+                }
             }
         }
     }
 }
 
 @Composable
-private fun DistribucionLandscape(
-    rivales: List<Jugador>,
+private fun SeatRival(
+    rival: Jugador,
     dealerAsiento: Int?,
     turnoActual: Int?,
-    mostrarCartasRival: Boolean
+    mostrarCartasRival: Boolean,
+    esCompacto: Boolean
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        if (rivales.isNotEmpty()) {
-            // Rivales en arco superior e izquierdo/derecho
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.TopCenter)
-                    .padding(top = 8.dp, start = 20.dp, end = 20.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.Top
-            ) {
-                rivales.forEach { rival ->
-                    JugadorSeatView(
-                        jugador = rival,
-                        esTurnoActual = (turnoActual == rival.asiento),
-                        esDealer = (dealerAsiento == rival.asiento),
-                        mostrarCartasPrivadas = mostrarCartasRival
-                    )
-                }
-            }
-        }
-    }
+    JugadorSeatView(
+        jugador = rival,
+        esTurnoActual = (turnoActual == rival.asiento),
+        esDealer = (dealerAsiento == rival.asiento),
+        mostrarCartasPrivadas = mostrarCartasRival,
+        esCompacto = esCompacto
+    )
 }

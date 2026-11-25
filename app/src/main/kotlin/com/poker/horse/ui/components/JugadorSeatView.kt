@@ -1,5 +1,12 @@
 package com.poker.horse.ui.components
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -16,6 +23,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,9 +31,9 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.poker.horse.ui.theme.MoradoAllIn
 import com.poker.horse.ui.theme.OroClaro
 import com.poker.horse.ui.theme.OroFichas
 import com.poker.horse.ui.theme.RojoFold
@@ -38,18 +46,50 @@ fun JugadorSeatView(
     esTurnoActual: Boolean,
     esDealer: Boolean,
     mostrarCartasPrivadas: Boolean = false,
+    esCompacto: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     val estaRetirado = jugador.estado == EstadoJugador.Retirado
     val estaAllIn = jugador.estado == EstadoJugador.AllIn
 
+    // Dimensiones dinámicas según rol y número de cartas
+    val cantCartas = jugador.cartas.size
+    val anchoCarta: Dp = when {
+        jugador.esHumano -> if (cantCartas > 5) 36.dp else 42.dp
+        esCompacto -> 28.dp
+        else -> if (cantCartas > 5) 30.dp else 34.dp
+    }
+    val altoCarta: Dp = when {
+        jugador.esHumano -> if (cantCartas > 5) 52.dp else 60.dp
+        esCompacto -> 40.dp
+        else -> if (cantCartas > 5) 44.dp else 48.dp
+    }
+
+    val solapamiento: Dp = when {
+        cantCartas <= 2 -> 6.dp
+        cantCartas <= 4 -> 12.dp
+        else -> 18.dp
+    }
+
+    // Animación de pulso cuando es el turno del jugador
+    val infiniteTransition = rememberInfiniteTransition(label = "TurnoGlow")
+    val alphaGlow by infiniteTransition.animateFloat(
+        initialValue = 0.4f,
+        targetValue = 1.0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(700, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "AlphaGlow"
+    )
+
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Fila de cartas del jugador
+        // Fila de cartas con solapamiento adaptable
         Row(
-            horizontalArrangement = Arrangement.spacedBy((-16).dp),
+            horizontalArrangement = Arrangement.spacedBy(-solapamiento),
             verticalAlignment = Alignment.CenterVertically
         ) {
             jugador.cartas.forEachIndexed { index, carta ->
@@ -61,46 +101,54 @@ fun JugadorSeatView(
                 CartaView(
                     carta = carta,
                     visible = esVisible,
-                    ancho = if (jugador.esHumano) 48.dp else 36.dp,
-                    alto = if (jugador.esHumano) 68.dp else 50.dp
+                    ancho = anchoCarta,
+                    alto = altoCarta
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(2.dp))
 
-        // Caja de información del jugador (Nombre, Fichas, Estado)
+        // Badge de información del jugador
         Box(contentAlignment = Alignment.TopEnd) {
             val fondo = when {
-                estaRetirado -> Color(0x99333333)
+                estaRetirado -> Color(0xAA212121)
                 estaAllIn -> Color(0xDD4A148C)
-                jugador.esHumano -> Color(0xDD1B5E20)
-                else -> Color(0xDD212121)
+                jugador.esHumano -> Color(0xEE1B5E20)
+                else -> Color(0xEE2A2A2A)
             }
 
-            val bordeColor = when {
-                esTurnoActual -> OroClaro
+            val colorBordeTurno = if (esTurnoActual) OroClaro.copy(alpha = alphaGlow) else Color.Transparent
+            val colorBordeBase = when {
                 jugador.esHumano -> Color(0xFF66BB6A)
                 else -> Color(0xFF555555)
             }
 
-            val bordeAncho = if (esTurnoActual) 2.5.dp else 1.dp
+            val anchoCaja = when {
+                jugador.esHumano -> 120.dp
+                esCompacto -> 90.dp
+                else -> 100.dp
+            }
 
             Column(
                 modifier = Modifier
-                    .width(if (jugador.esHumano) 130.dp else 105.dp)
-                    .shadow(4.dp, RoundedCornerShape(8.dp))
+                    .width(anchoCaja)
+                    .shadow(if (esTurnoActual) 8.dp else 4.dp, RoundedCornerShape(8.dp))
                     .clip(RoundedCornerShape(8.dp))
                     .background(fondo)
-                    .border(bordeAncho, bordeColor, RoundedCornerShape(8.dp))
-                    .padding(horizontal = 6.dp, vertical = 4.dp),
+                    .border(
+                        width = if (esTurnoActual) 2.5.dp else 1.dp,
+                        color = if (esTurnoActual) colorBordeTurno else colorBordeBase,
+                        shape = RoundedCornerShape(8.dp)
+                    )
+                    .padding(horizontal = 6.dp, vertical = 3.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = jugador.nombre,
-                    color = if (estaRetirado) Color.LightGray else Color.White,
+                    color = if (estaRetirado) Color.Gray else Color.White,
                     fontWeight = FontWeight.Bold,
-                    fontSize = if (jugador.esHumano) 13.sp else 11.sp,
+                    fontSize = if (jugador.esHumano) 12.sp else 10.sp,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -108,44 +156,44 @@ fun JugadorSeatView(
                 Text(
                     text = "$${jugador.pila} 🪙",
                     color = OroFichas,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = if (jugador.esHumano) 12.sp else 10.sp
+                    fontWeight = FontWeight.Bold,
+                    fontSize = if (jugador.esHumano) 11.sp else 9.sp
                 )
 
-                // Etiqueta de estado
                 when {
                     estaRetirado -> {
                         Text(
-                            text = "NO VA",
+                            text = "NO IR",
                             color = RojoFold,
-                            fontSize = 9.sp,
-                            fontWeight = FontWeight.ExtraBold
+                            fontSize = 8.sp,
+                            fontWeight = FontWeight.Black
                         )
                     }
                     estaAllIn -> {
                         Text(
-                            text = "¡ALL-IN!",
+                            text = "ALL-IN",
                             color = OroClaro,
-                            fontSize = 9.sp,
-                            fontWeight = FontWeight.ExtraBold
+                            fontSize = 8.sp,
+                            fontWeight = FontWeight.Black
                         )
                     }
                     jugador.aporteEnCalle > 0 -> {
                         Text(
                             text = "Apuesta: $${jugador.aporteEnCalle}",
                             color = Color(0xFF81C784),
-                            fontSize = 9.sp
+                            fontSize = 8.sp,
+                            fontWeight = FontWeight.Bold
                         )
                     }
                 }
             }
 
-            // Botón de Dealer 'D'
+            // Ficha de Dealer 'D'
             if (esDealer) {
                 Box(
                     modifier = Modifier
-                        .offset(x = 6.dp, y = (-6).dp)
-                        .size(18.dp)
+                        .offset(x = 5.dp, y = (-5).dp)
+                        .size(16.dp)
                         .clip(CircleShape)
                         .background(Color.White)
                         .border(1.dp, Color.Black, CircleShape),
@@ -154,7 +202,7 @@ fun JugadorSeatView(
                     Text(
                         text = "D",
                         color = Color.Black,
-                        fontSize = 11.sp,
+                        fontSize = 10.sp,
                         fontWeight = FontWeight.Black
                     )
                 }

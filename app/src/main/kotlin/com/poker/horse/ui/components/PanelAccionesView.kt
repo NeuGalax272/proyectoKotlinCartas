@@ -1,6 +1,5 @@
 package com.poker.horse.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,11 +7,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
@@ -46,13 +43,14 @@ fun PanelAccionesView(
     apuestaMasAlta: Int,
     boteTotal: Int,
     onEjecutarAccion: (Accion) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    esLandscape: Boolean = false
 ) {
     if (!esTurnoHumano || jugadorHumano == null) {
         Surface(
             modifier = modifier.fillMaxWidth(),
-            color = SuperficieOscura.copy(alpha = 0.9f),
-            shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
+            color = SuperficieOscura.copy(alpha = 0.95f),
+            shape = RoundedCornerShape(12.dp)
         ) {
             BoxLoadingTurno()
         }
@@ -63,7 +61,6 @@ fun PanelAccionesView(
     val aporteHumano = jugadorHumano.aporteEnCalle
     val aIgualar = maxOf(0, apuestaMasAlta - aporteHumano)
 
-    // Determinar límites de apuesta/subida
     val tieneBet = accionesLegales.any { it is Accion.Bet }
     val tieneRaise = accionesLegales.any { it is Accion.Raise }
 
@@ -83,10 +80,10 @@ fun PanelAccionesView(
         shadowElevation = 8.dp
     ) {
         Column(
-            modifier = Modifier.padding(12.dp),
+            modifier = Modifier.padding(if (esLandscape) 8.dp else 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Slider si se puede Apostar o Subir
+            // Slider y Botones Rápidos
             if ((tieneBet || tieneRaise) && pilaHumano > aIgualar) {
                 val minMonto = if (tieneBet) {
                     accionesLegales.filterIsInstance<Accion.Bet>().first().monto
@@ -104,17 +101,15 @@ fun PanelAccionesView(
                         text = "Monto: $$montoSeleccionado",
                         color = OroFichas,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp
+                        fontSize = 13.sp
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                         BotonRapido("Min") { montoSeleccionado = minMonto }
                         BotonRapido("1/2 Bote") {
-                            val medioBote = maxOf(minMonto, minOf(maxMonto, boteTotal / 2))
-                            montoSeleccionado = medioBote
+                            montoSeleccionado = maxOf(minMonto, minOf(maxMonto, boteTotal / 2))
                         }
                         BotonRapido("Bote") {
-                            val boteCompleto = maxOf(minMonto, minOf(maxMonto, boteTotal))
-                            montoSeleccionado = boteCompleto
+                            montoSeleccionado = maxOf(minMonto, minOf(maxMonto, boteTotal))
                         }
                         BotonRapido("Max") { montoSeleccionado = maxMonto }
                     }
@@ -127,15 +122,16 @@ fun PanelAccionesView(
                     colors = SliderDefaults.colors(
                         thumbColor = OroFichas,
                         activeTrackColor = NaranjaBet
-                    )
+                    ),
+                    modifier = Modifier.height(32.dp)
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(2.dp))
             }
 
             // Fila de botones principales filtrados por acciones legales
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 // FOLD
                 val accionFold = accionesLegales.firstOrNull { it is Accion.Fold }
@@ -213,13 +209,14 @@ private fun BoxLoadingTurno() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "⏳ Esperando acciones de los rivales...",
+            text = "⏳ Esperando jugada de rivales...",
             color = Color.LightGray,
-            fontSize = 14.sp
+            fontSize = 13.sp,
+            fontWeight = FontWeight.Medium
         )
     }
 }
@@ -235,14 +232,14 @@ private fun BotonAccion(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = color),
         shape = RoundedCornerShape(8.dp),
-        modifier = modifier.height(52.dp)
+        modifier = modifier.height(48.dp)
     ) {
         Text(
             text = texto,
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = 11.sp,
-            lineHeight = 13.sp,
+            lineHeight = 12.sp,
             maxLines = 2
         )
     }
