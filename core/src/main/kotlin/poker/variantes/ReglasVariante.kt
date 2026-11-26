@@ -32,22 +32,28 @@ data class PorcionEvaluada(
     }
 }
 
+data class ResultadoReparto(
+    val jugadores: List<Jugador>,
+    val comunitarias: List<Carta>,
+    val mazoRestante: List<Carta>
+)
+
 interface ReglasVariante {
     val variante: Variante
     val esJuegoComunitario: Boolean
     val calles: List<Calle>
 
     fun repartirInicial(
-        mazo: MutableList<Carta>,
+        mazo: List<Carta>,
         jugadores: List<Jugador>
-    ): Pair<List<Jugador>, List<Carta>>
+    ): ResultadoReparto
 
     fun repartirCalle(
         calle: Calle,
-        mazo: MutableList<Carta>,
+        mazo: List<Carta>,
         jugadores: List<Jugador>,
         comunitarias: List<Carta>
-    ): Pair<List<Jugador>, List<Carta>>
+    ): ResultadoReparto
 
     fun evaluarJugador(
         cartasPropias: List<Carta>,

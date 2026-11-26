@@ -28,7 +28,7 @@ class MotorDeJuego(
     ): EstadoMano {
         require(jugadoresActuales.size >= 2) { "Se requieren al menos 2 jugadores" }
         val regla = reglasPara(variante)
-        val mazo = generadorDeMazo.nuevoMazo().toMutableList()
+        val mazo = generadorDeMazo.nuevoMazo()
 
         val ciegaChica = ciegaGrande / 2
         val n = jugadoresActuales.size
@@ -66,7 +66,9 @@ class MotorDeJuego(
         }
 
         // Reparto inicial según la variante polimórfica
-        val (repartidos, comunitarias) = regla.repartirInicial(mazo, preparados)
+        val repartoInicial = regla.repartirInicial(mazo, preparados)
+        val repartidos = repartoInicial.jugadores
+        val comunitarias = repartoInicial.comunitarias
         val primeraCalle = regla.calles.first()
 
         val primerTurnoIndex = (dealerIndex + 3) % n
@@ -77,7 +79,7 @@ class MotorDeJuego(
             calle = primeraCalle,
             jugadores = repartidos,
             comunitarias = comunitarias,
-            mazoRestante = mazo.toList(),
+            mazoRestante = repartoInicial.mazoRestante,
             bote = 0,
             dealerIndex = dealerIndex,
             turnoActual = asientoPrimerTurno,
@@ -301,13 +303,14 @@ class MotorDeJuego(
 
         // Siguiente calle
         val siguienteCalle = calles[indiceCalleActual + 1]
-        val mazoMutable = estado.mazoRestante.toMutableList()
-        val (jugadoresRepartidos, nuevasComunitarias) = regla.repartirCalle(
+        val reparto = regla.repartirCalle(
             calle = siguienteCalle,
-            mazo = mazoMutable,
+            mazo = estado.mazoRestante,
             jugadores = jugadoresLimpio,
             comunitarias = estado.comunitarias
         )
+        val jugadoresRepartidos = reparto.jugadores
+        val nuevasComunitarias = reparto.comunitarias
 
         // Primer jugador activo a la izquierda del dealer
         val n = jugadoresRepartidos.size
@@ -324,7 +327,7 @@ class MotorDeJuego(
             calle = siguienteCalle,
             jugadores = jugadoresRepartidos,
             comunitarias = nuevasComunitarias,
-            mazoRestante = mazoMutable.toList(),
+            mazoRestante = reparto.mazoRestante,
             bote = totalBote,
             turnoActual = primerTurno,
             apuestaMasAlta = 0,

@@ -22,38 +22,40 @@ class SevenCardStudReglas(
     )
 
     override fun repartirInicial(
-        mazo: MutableList<Carta>,
+        mazo: List<Carta>,
         jugadores: List<Jugador>
-    ): Pair<List<Jugador>, List<Carta>> {
+    ): ResultadoReparto {
+        val mazoMutable = mazo.toMutableList()
         val actualizados = jugadores.map { j ->
-            val c1 = mazo.removeAt(0)
-            val c2 = mazo.removeAt(0)
-            val c3 = mazo.removeAt(0)
+            val c1 = mazoMutable.removeAt(0)
+            val c2 = mazoMutable.removeAt(0)
+            val c3 = mazoMutable.removeAt(0)
             // 3ra calle: 2 boca abajo, 1 boca arriba
             j.copy(
                 cartas = listOf(c1, c2, c3),
                 cartasVisibles = listOf(false, false, true)
             )
         }
-        return Pair(actualizados, emptyList())
+        return ResultadoReparto(actualizados, emptyList(), mazoMutable.toList())
     }
 
     override fun repartirCalle(
         calle: Calle,
-        mazo: MutableList<Carta>,
+        mazo: List<Carta>,
         jugadores: List<Jugador>,
         comunitarias: List<Carta>
-    ): Pair<List<Jugador>, List<Carta>> {
+    ): ResultadoReparto {
+        val mazoMutable = mazo.toMutableList()
         val actualizados = jugadores.map { j ->
             if (!j.estaEnJuego) return@map j
-            val nueva = mazo.removeAt(0)
+            val nueva = mazoMutable.removeAt(0)
             val esVisible = calle != Calle.SEPTIMA // 7ma calle va boca abajo
             j.copy(
                 cartas = j.cartas + nueva,
                 cartasVisibles = j.cartasVisibles + esVisible
             )
         }
-        return Pair(actualizados, emptyList())
+        return ResultadoReparto(actualizados, emptyList(), mazoMutable.toList())
     }
 
     override fun evaluarJugador(

@@ -17,36 +17,38 @@ class OmahaReglas(
     override val calles: List<Calle> = listOf(Calle.PREFLOP, Calle.FLOP, Calle.TURN, Calle.RIVER)
 
     override fun repartirInicial(
-        mazo: MutableList<Carta>,
+        mazo: List<Carta>,
         jugadores: List<Jugador>
-    ): Pair<List<Jugador>, List<Carta>> {
+    ): ResultadoReparto {
+        val mazoMutable = mazo.toMutableList()
         val actualizados = jugadores.map { j ->
-            val cartasMano = (1..4).map { mazo.removeAt(0) }
+            val cartasMano = (1..4).map { mazoMutable.removeAt(0) }
             j.copy(
                 cartas = cartasMano,
                 cartasVisibles = listOf(false, false, false, false)
             )
         }
-        return Pair(actualizados, emptyList())
+        return ResultadoReparto(actualizados, emptyList(), mazoMutable.toList())
     }
 
     override fun repartirCalle(
         calle: Calle,
-        mazo: MutableList<Carta>,
+        mazo: List<Carta>,
         jugadores: List<Jugador>,
         comunitarias: List<Carta>
-    ): Pair<List<Jugador>, List<Carta>> {
+    ): ResultadoReparto {
+        val mazoMutable = mazo.toMutableList()
         val nuevasComunitarias = comunitarias.toMutableList()
         when (calle) {
             Calle.FLOP -> {
-                repeat(3) { nuevasComunitarias.add(mazo.removeAt(0)) }
+                repeat(3) { nuevasComunitarias.add(mazoMutable.removeAt(0)) }
             }
             Calle.TURN, Calle.RIVER -> {
-                nuevasComunitarias.add(mazo.removeAt(0))
+                nuevasComunitarias.add(mazoMutable.removeAt(0))
             }
             else -> {}
         }
-        return Pair(jugadores, nuevasComunitarias)
+        return ResultadoReparto(jugadores, nuevasComunitarias, mazoMutable.toList())
     }
 
     override fun evaluarJugador(
