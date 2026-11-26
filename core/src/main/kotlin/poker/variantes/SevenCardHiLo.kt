@@ -72,4 +72,27 @@ class SevenCardHiLoReglas(
         if (cartasPropias.size < 5) return null
         return evaluadorBajo.evaluar(cartasPropias)
     }
+
+    override fun evaluarPorciones(
+        contendientes: List<Jugador>,
+        comunitarias: List<Carta>
+    ): List<PorcionEvaluada> {
+        val altas = contendientes.map { jugador ->
+            EvaluacionJugador(jugador.asiento, evaluarJugador(jugador.cartas, comunitarias))
+        }
+        val bajas = contendientes.mapNotNull { jugador ->
+            evaluarJugadorBajo(jugador.cartas, comunitarias)?.let { resultado ->
+                EvaluacionJugador(jugador.asiento, resultado)
+            }
+        }
+
+        if (bajas.isEmpty()) {
+            return listOf(PorcionEvaluada("Mano Alta", 1, altas))
+        }
+
+        return listOf(
+            PorcionEvaluada("Mano Alta", 1, altas, prioridadResto = 1),
+            PorcionEvaluada("Mano Baja", 1, bajas, esBaja = true)
+        )
+    }
 }

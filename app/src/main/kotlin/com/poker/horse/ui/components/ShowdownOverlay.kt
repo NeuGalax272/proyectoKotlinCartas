@@ -85,7 +85,7 @@ fun ShowdownOverlay(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = "${g.jugador.nombre} gana +$${g.montoGanado}",
+                            text = "${g.jugador.nombre} gana +${'$'}${g.montoGanado}",
                             color = if (g.jugador.esHumano) Color(0xFF81C784) else Color.White,
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp

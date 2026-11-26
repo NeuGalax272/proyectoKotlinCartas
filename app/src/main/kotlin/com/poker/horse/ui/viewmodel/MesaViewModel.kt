@@ -16,9 +16,10 @@ import poker.modelo.MazoAleatorio
 import poker.modelo.Variante
 import poker.motor.EstadoMano
 import poker.motor.MotorDeJuego
+import poker.variantes.reglasPredeterminadas
 
 class MesaViewModel(
-    private val motor: MotorDeJuego = MotorDeJuego()
+    private val motor: MotorDeJuego = MotorDeJuego(reglasPredeterminadas())
 ) : ViewModel() {
 
     private val listaVariantesHORSE = listOf(

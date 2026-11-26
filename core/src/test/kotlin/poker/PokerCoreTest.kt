@@ -18,6 +18,7 @@ import poker.variantes.OmahaReglas
 import poker.variantes.RazzReglas
 import poker.variantes.SevenCardHiLoReglas
 import poker.variantes.SevenCardStudReglas
+import poker.variantes.reglasPredeterminadas
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -145,7 +146,7 @@ class PokerCoreTest {
 
     @Test
     fun `test conservacion de fichas en motor de juego`() {
-        val motor = MotorDeJuego()
+        val motor = MotorDeJuego(reglasPredeterminadas())
         val jugadores = listOf(
             Jugador(asiento = 0, nombre = "Jugador 1", pila = 500, esHumano = true),
             Jugador(asiento = 1, nombre = "Jugador 2", pila = 500, esHumano = false),
@@ -169,7 +170,7 @@ class PokerCoreTest {
 
     @Test
     fun `test acciones legales exige fold call raise o allin cuando hay apuesta pendiente`() {
-        val motor = MotorDeJuego()
+        val motor = MotorDeJuego(reglasPredeterminadas())
         val jugadores = listOf(
             Jugador(asiento = 0, nombre = "P1", pila = 500, esHumano = true),
             Jugador(asiento = 1, nombre = "P2", pila = 500, esHumano = false)
