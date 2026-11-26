@@ -16,6 +16,7 @@ import poker.modelo.MazoAleatorio
 import poker.modelo.Variante
 import poker.motor.EstadoMano
 import poker.motor.MotorDeJuego
+import poker.motor.ResultadoAccion
 import poker.variantes.reglasPredeterminadas
 
 class MesaViewModel(
@@ -77,8 +78,12 @@ class MesaViewModel(
         val estadoActual = _uiState.value.estadoMano
         if (estadoActual.manoTerminada || estadoActual.jugadorEnTurno?.esHumano != true) return
 
-        val nuevoEstado = motor.aplicar(estadoActual, accion)
-        actualizarEstado(nuevoEstado)
+        when (val resultado = motor.aplicar(estadoActual, accion)) {
+            is ResultadoAccion.Aplicada -> actualizarEstado(resultado.estado)
+            is ResultadoAccion.Rechazada -> _uiState.update {
+                it.copy(accionesLegales = resultado.accionesLegales)
+            }
+        }
     }
 
     fun siguienteMano() {
@@ -194,8 +199,10 @@ class MesaViewModel(
             botTurnJob = viewModelScope.launch {
                 delay(850) // Pausa para que el usuario aprecie el juego del bot
                 val accionBot = motor.decidirAccionBot(estado)
-                val nuevoEstado = motor.aplicar(estado, accionBot)
-                actualizarEstado(nuevoEstado)
+                when (val resultado = motor.aplicar(estado, accionBot)) {
+                    is ResultadoAccion.Aplicada -> actualizarEstado(resultado.estado)
+                    is ResultadoAccion.Rechazada -> actualizarEstado(estado)
+                }
             }
         }
     }

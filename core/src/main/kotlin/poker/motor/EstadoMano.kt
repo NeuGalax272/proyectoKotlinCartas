@@ -14,6 +14,14 @@ data class GanadorInfo(
     val esBaja: Boolean = false
 )
 
+sealed interface ResultadoAccion {
+    data class Aplicada(val estado: EstadoMano) : ResultadoAccion
+    data class Rechazada(
+        val motivo: String,
+        val accionesLegales: Set<Accion>
+    ) : ResultadoAccion
+}
+
 data class EstadoMano(
     val variante: Variante,
     val calle: Calle,

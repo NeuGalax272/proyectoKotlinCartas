@@ -129,12 +129,18 @@ class MotorDeJuego(
         return opciones
     }
 
-    fun aplicar(estado: EstadoMano, accion: Accion): EstadoMano {
+    fun aplicar(estado: EstadoMano, accion: Accion): ResultadoAccion {
         val legales = accionesLegales(estado)
-        require(legales.any { coincideAccion(it, accion) }) {
-            "Acción no legal: $accion. Acciones legales: $legales"
+        if (legales.none { coincideAccion(it, accion) }) {
+            return ResultadoAccion.Rechazada(
+                motivo = "Acción no legal: $accion",
+                accionesLegales = legales
+            )
         }
+        return ResultadoAccion.Aplicada(aplicarAccionLegal(estado, accion))
+    }
 
+    private fun aplicarAccionLegal(estado: EstadoMano, accion: Accion): EstadoMano {
         val jugador = estado.jugadorEnTurno ?: error("No hay jugador en turno")
         val indexJugador = estado.jugadores.indexOfFirst { it.asiento == jugador.asiento }
 
@@ -256,10 +262,10 @@ class MotorDeJuego(
     private fun coincideAccion(a: Accion, b: Accion): Boolean = when {
         a is Accion.Fold && b is Accion.Fold -> true
         a is Accion.Check && b is Accion.Check -> true
-        a is Accion.Call && b is Accion.Call -> true
-        a is Accion.Bet && b is Accion.Bet -> true
-        a is Accion.Raise && b is Accion.Raise -> true
-        a is Accion.AllIn && b is Accion.AllIn -> true
+        a is Accion.Call && b is Accion.Call -> a.monto == b.monto
+        a is Accion.Bet && b is Accion.Bet -> a.monto == b.monto
+        a is Accion.Raise && b is Accion.Raise -> a.monto == b.monto
+        a is Accion.AllIn && b is Accion.AllIn -> a.monto == b.monto
         else -> false
     }
 
