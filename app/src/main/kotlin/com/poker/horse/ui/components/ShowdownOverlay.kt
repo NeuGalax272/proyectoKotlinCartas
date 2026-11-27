@@ -37,6 +37,7 @@ import poker.motor.GanadorInfo
 fun ShowdownOverlay(
     ganadores: List<GanadorInfo>,
     onSiguienteMano: () -> Unit,
+    esAnfitrion: Boolean = true,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -101,18 +102,22 @@ fun ShowdownOverlay(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Button(
-                    onClick = onSiguienteMano,
-                    colors = ButtonDefaults.buttonColors(containerColor = VerdeCall),
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.fillMaxWidth(0.8f).height(48.dp)
-                ) {
-                    Text(
-                        text = "Siguiente mano",
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
-                    )
+                if (esAnfitrion) {
+                    Button(
+                        onClick = onSiguienteMano,
+                        colors = ButtonDefaults.buttonColors(containerColor = VerdeCall),
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.fillMaxWidth(0.8f).height(48.dp)
+                    ) {
+                        Text(
+                            text = "Siguiente mano",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    }
+                } else {
+                    Text("Esperando al anfitrión para continuar…", color = OroClaro, textAlign = TextAlign.Center)
                 }
             }
         }

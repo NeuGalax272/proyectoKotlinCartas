@@ -1,0 +1,365 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2740" height="1170" viewBox="0 0 2740 1170"><rect width="2740" height="1170" fill="#0b6b3a"/><g transform="translate(10,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(220,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(430,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(640,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(850,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(1060,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(1270,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(1480,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(1690,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(1900,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#1a1a1a">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#1a1a1a">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(2110,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(2320,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(2530,10)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</g><g transform="translate(10,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(220,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(430,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(640,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(850,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(1060,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(1270,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(1480,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(1690,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(1900,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#cc0000">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#cc0000">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(2110,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(2320,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(2530,300)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</g><g transform="translate(10,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(220,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(430,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(640,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(850,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(1060,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(1270,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(1480,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(1690,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(1900,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#cc0000">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#cc0000">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(2110,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(2320,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(2530,590)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 2 L 28 16 L 16 30 L 4 16 Z"/></g>
+  </g>
+</g><g transform="translate(10,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">A</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(220,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(430,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">3</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(640,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">4</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(850,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">5</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(1060,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(1270,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">7</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(1480,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">8</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(1690,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">9</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(1900,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#1a1a1a">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="32" fill="#1a1a1a">10</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(2110,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">J</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(2320,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">Q</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g><g transform="translate(2530,880)">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">K</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><circle cx="16" cy="9" r="6"/><circle cx="8" cy="19" r="6"/><circle cx="24" cy="19" r="6"/><path d="M14 22 L 12 30 L 20 30 L 18 22 Z"/></g>
+  </g>
+</g></svg>

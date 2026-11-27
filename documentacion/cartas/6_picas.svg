@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="280" viewBox="0 0 200 280">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#1a1a1a">6</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#1a1a1a"><path d="M16 3 C 12 10, 4 16, 4 21 C 4 26, 9 28, 13 25 C 13 27, 12 29, 10 30 L 22 30 C 20 29, 19 27, 19 25 C 23 28, 28 26, 28 21 C 28 16, 20 10, 16 3 Z"/></g>
+  </g>
+</svg>

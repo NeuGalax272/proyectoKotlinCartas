@@ -52,8 +52,11 @@ fun JugadorSeatView(
             jugador.esHumano -> 39.dp
             else -> 29.dp
         }
+        val usaFilasParaBot = !jugador.esHumano && cantidad > 4
         val separacion = if (cantidad > 2) 0.dp else 2.dp
-        val anchoCarta = minOf(
+        val anchoCarta = if (usaFilasParaBot) {
+            minOf(if (esCompacto) 25.dp else 29.dp, (maxWidth - 12.dp) / 4)
+        } else minOf(
             anchoPreferido,
             (maxWidth - separacion * (cantidad - 1)).coerceAtLeast(0.dp) /
                 (1f + (cantidad - 1) * if (cantidad > 2) 0.55f else 1f)
@@ -69,18 +72,28 @@ fun JugadorSeatView(
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             if (jugador.cartas.isNotEmpty()) {
-                Row(
+                Column(
                     modifier = Modifier.alpha(if (retirado) 0.55f else 1f),
-                    horizontalArrangement = Arrangement.spacedBy(espacioEntreCartas)
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(2.dp)
                 ) {
-                    jugador.cartas.forEachIndexed { index, carta ->
-                        CartaView(
-                            carta = carta,
-                            visible = mostrarCartasPrivadas || jugador.esHumano ||
-                                jugador.cartasVisibles.getOrElse(index) { false },
-                            ancho = anchoCarta,
-                            alto = anchoCarta * 1.34f
-                        )
+                    val indicesPorFila = if (usaFilasParaBot) {
+                        listOf(jugador.cartas.indices.take(4), jugador.cartas.indices.drop(4))
+                    } else {
+                        listOf(jugador.cartas.indices.toList())
+                    }
+                    indicesPorFila.filter { it.isNotEmpty() }.forEach { indices ->
+                        Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                            indices.forEach { index ->
+                                CartaView(
+                                    carta = jugador.cartas[index],
+                                    visible = mostrarCartasPrivadas || jugador.esHumano ||
+                                        jugador.cartasVisibles.getOrElse(index) { false },
+                                    ancho = anchoCarta,
+                                    alto = anchoCarta * 1.34f
+                                )
+                            }
+                        }
                     }
                 }
             }
