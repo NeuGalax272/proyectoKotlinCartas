@@ -60,6 +60,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
     implementation("androidx.core:core-ktx:1.15.0")
+    implementation("com.caverock:androidsvg-aar:1.4")
 
     testImplementation(kotlin("test"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.10.01"))

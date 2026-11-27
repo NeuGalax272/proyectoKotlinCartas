@@ -41,6 +41,7 @@ fun HorseHeaderBar(
     manosPorVariante: Int = 5,
     onAbrirConfiguracion: () -> Unit,
     onAbrirReglas: () -> Unit,
+    mostrarConfiguracion: Boolean = true,
     modifier: Modifier = Modifier
 ) {
     Surface(
@@ -110,13 +111,15 @@ fun HorseHeaderBar(
                         modifier = Modifier.size(20.dp)
                     )
                 }
-                IconButton(onClick = onAbrirConfiguracion, modifier = Modifier.size(44.dp)) {
-                    Icon(
-                        imageVector = Icons.Default.Settings,
-                        contentDescription = "Configuración de partida",
-                        tint = Color.White,
-                        modifier = Modifier.size(20.dp)
-                    )
+                if (mostrarConfiguracion) {
+                    IconButton(onClick = onAbrirConfiguracion, modifier = Modifier.size(44.dp)) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Configuración de partida",
+                            tint = Color.White,
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
                 }
             }
         }

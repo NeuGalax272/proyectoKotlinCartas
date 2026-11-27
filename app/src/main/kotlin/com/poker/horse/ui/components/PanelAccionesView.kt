@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
@@ -52,16 +54,25 @@ fun PanelAccionesView(
     boteTotal: Int,
     onEjecutarAccion: (Accion) -> Unit,
     modifier: Modifier = Modifier,
-    esLandscape: Boolean = false
+    esLandscape: Boolean = false,
+    jugadorEnTurno: Jugador? = null,
+    calleEtiqueta: String = "",
+    historialAcciones: List<String> = emptyList()
 ) {
     if (!esTurnoHumano || jugadorHumano == null) {
         Surface(
-            modifier = modifier.fillMaxWidth(),
+            modifier = if (esLandscape) modifier.fillMaxSize() else modifier.fillMaxWidth(),
             color = SuperficieOscura.copy(alpha = 0.95f),
             shape = RoundedCornerShape(16.dp),
             border = BorderStroke(1.dp, LineaSuperficie)
         ) {
-            BoxLoadingTurno()
+            BoxLoadingTurno(
+                expandido = esLandscape,
+                jugadorEnTurno = jugadorEnTurno,
+                calleEtiqueta = calleEtiqueta,
+                bote = boteTotal,
+                historialAcciones = historialAcciones
+            )
         }
         return
     }
@@ -221,19 +232,56 @@ fun PanelAccionesView(
 }
 
 @Composable
-private fun BoxLoadingTurno() {
+private fun BoxLoadingTurno(
+    expandido: Boolean,
+    jugadorEnTurno: Jugador?,
+    calleEtiqueta: String,
+    bote: Int,
+    historialAcciones: List<String>
+) {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp),
+            .then(if (expandido) Modifier.fillMaxSize() else Modifier.fillMaxWidth())
+            .padding(if (expandido) 20.dp else 12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        if (expandido) {
+            Spacer(Modifier.weight(1f))
+            CircularProgressIndicator(color = OroFichas, strokeWidth = 3.dp)
+            Spacer(Modifier.height(20.dp))
+            Text(
+                text = jugadorEnTurno?.let { "Turno de ${it.nombre}" } ?: "La mano está avanzando",
+                color = MarfilCarta,
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+            Text(
+                text = if (calleEtiqueta.isBlank()) "Esperando a los rivales" else "$calleEtiqueta · Bote ${'$'}$bote",
+                color = TextoSecundario,
+                fontSize = 15.sp,
+                modifier = Modifier.padding(top = 8.dp),
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.height(24.dp))
+            historialAcciones.takeLast(4).forEach { accion ->
+                Text(
+                    text = accion,
+                    color = TextoSecundario,
+                    fontSize = 13.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
+                )
+            }
+            Spacer(Modifier.weight(1f))
+        } else {
         Text(
             text = "Esperando a los rivales",
             color = TextoSecundario,
             fontSize = 13.sp,
             fontWeight = FontWeight.Medium
         )
+        }
     }
 }
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="280" viewBox="0 0 200 280">
+  <rect x="0.5" y="0.5" width="199" height="279" rx="15" ry="15" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(60,100) scale(2.5000,2.5000)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  <g transform="translate(200,280) rotate(180)">
+    <text x="22" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#cc0000">2</text><g transform="translate(10,54) scale(0.7500,0.7500)" fill="#cc0000"><path d="M16 27 C 6 19, 2 12, 7 7 C 11 3, 15 6, 16 9 C 17 6, 21 3, 25 7 C 30 12, 26 19, 16 27 Z"/></g>
+  </g>
+</svg>

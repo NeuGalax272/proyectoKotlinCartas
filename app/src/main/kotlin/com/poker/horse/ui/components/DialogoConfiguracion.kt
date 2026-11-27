@@ -42,6 +42,7 @@ fun DialogoConfiguracion(
     varianteActual: Variante,
     semillaActual: Long?,
     onConfirmar: (nuevaVariante: Variante, nuevaSemilla: Long?, reiniciarFichas: Boolean) -> Unit,
+    onAbandonarPartida: () -> Unit,
     onDismiss: () -> Unit
 ) {
     var varianteSeleccionada by remember { mutableStateOf(varianteActual) }
@@ -126,6 +127,16 @@ fun DialogoConfiguracion(
                     )
                 ) {
                     Text(if (reiniciarFichas) "✓ Reiniciar fichas a $1000" else "Reiniciar fichas a $1000")
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                OutlinedButton(
+                    onClick = onAbandonarPartida,
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFFFF8A80))
+                ) {
+                    Text("Abandonar partida")
                 }
             }
         },
