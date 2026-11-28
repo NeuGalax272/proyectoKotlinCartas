@@ -9,6 +9,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import poker.bots.BotPorUmbrales
+import poker.bots.EstrategiaDeBot
+import poker.bots.PerfilBot
 import poker.modelo.Accion
 import poker.modelo.GeneradorDeMazo
 import poker.modelo.Jugador
@@ -17,27 +20,28 @@ import poker.modelo.Variante
 import poker.motor.EstadoMano
 import poker.motor.MotorDeJuego
 import poker.motor.ResultadoAccion
+import poker.variantes.ReglasVariante
 import poker.variantes.reglasPredeterminadas
 
 class MesaViewModel(
-    private val motor: MotorDeJuego = MotorDeJuego(reglasPredeterminadas()),
-    private var modoPartida: ModoPartida = ModoPartida.HORSE,
-    private val jugadoresDeInicio: List<Jugador> = listOf(
-        Jugador(asiento = 0, nombre = "Tú", pila = 1000, esHumano = true),
-        Jugador(asiento = 1, nombre = "Bot Sofía", pila = 1000),
-        Jugador(asiento = 2, nombre = "Bot Carlos", pila = 1000),
-        Jugador(asiento = 3, nombre = "Bot Mateo", pila = 1000)
-    ),
-    idsPorAsiento: Map<Int, String> = emptyMap(),
-    private val idJugadorLocal: String? = null,
-    private val esAnfitrion: Boolean = true
+    reglas: Map<Variante, ReglasVariante> = reglasPredeterminadas()
 ) : ViewModel() {
 
-    private val idsActivosPorAsiento = idsPorAsiento.toMutableMap()
-    val idsPorAsiento: Map<Int, String>
-        get() = idsActivosPorAsiento.toMap()
+    private val motor = MotorDeJuego(reglas)
 
-    private var listaVariantes = modoPartida.variantes
+    private val estrategias: Map<Int, EstrategiaDeBot> = mapOf(
+        1 to BotPorUmbrales({ reglas.getValue(it).valorador }, PerfilBot.CONSERVADOR),
+        2 to BotPorUmbrales({ reglas.getValue(it).valorador }, PerfilBot.EQUILIBRADO),
+        3 to BotPorUmbrales({ reglas.getValue(it).valorador }, PerfilBot.AGRESIVO)
+    )
+
+    private val listaVariantesHORSE = listOf(
+        Variante.HOLDEM,
+        Variante.OMAHA,
+        Variante.RAZZ,
+        Variante.SEVEN_CARD_STUD,
+        Variante.SEVEN_CARD_HI_LO
+    )
 
     private var indiceVarianteActual = 0
     private var dealerIndexActual = 0
@@ -49,13 +53,15 @@ class MesaViewModel(
     val uiState: StateFlow<MesaUiState>
 
     init {
-        val jugadoresIniciales = jugadoresDeInicio.map { jugador ->
-            val esLocal = idJugadorLocal?.let { idsActivosPorAsiento[jugador.asiento] == it } ?: jugador.esHumano
-            jugador.copy(esHumano = esLocal)
-        }
+        val jugadoresIniciales = listOf(
+            Jugador(asiento = 0, nombre = "Tú", pila = 1000, esHumano = true),
+            Jugador(asiento = 1, nombre = "Bot Sofía", pila = 1000, esHumano = false),
+            Jugador(asiento = 2, nombre = "Bot Carlos", pila = 1000, esHumano = false),
+            Jugador(asiento = 3, nombre = "Bot Mateo", pila = 1000, esHumano = false)
+        )
 
         val primerEstado = motor.iniciarNuevaMano(
-            variante = listaVariantes[indiceVarianteActual],
+            variante = listaVariantesHORSE[indiceVarianteActual],
             jugadoresActuales = jugadoresIniciales,
             dealerIndex = dealerIndexActual,
             generadorDeMazo = generadorActual
@@ -70,14 +76,14 @@ class MesaViewModel(
                 accionesLegales = if (esHumano) inicialesLegales else emptySet(),
                 esTurnoHumano = esHumano,
                 manoEnVariante = 1,
-                manosPorVariante = if (modoPartida == ModoPartida.HORSE) 5 else 1,
+                manosPorVariante = 5,
                 semillaConfigurada = null,
                 evaluacionHumanoTexto = calcularEvaluacionHumano(primerEstado)
             )
         )
         uiState = _uiState.asStateFlow()
 
-        if (esAnfitrion) revisarTurnoBot(primerEstado)
+        revisarTurnoBot(primerEstado)
     }
 
     fun ejecutarAccionHumano(accion: Accion) {
@@ -93,7 +99,6 @@ class MesaViewModel(
     }
 
     fun siguienteMano() {
-        if (!esAnfitrion) return
         botTurnJob?.cancel()
         val estadoPrevio = _uiState.value.estadoMano
 
@@ -104,10 +109,10 @@ class MesaViewModel(
         var manoNum = _uiState.value.manoEnVariante + 1
         if (manoNum > _uiState.value.manosPorVariante) {
             manoNum = 1
-            indiceVarianteActual = (indiceVarianteActual + 1) % listaVariantes.size
+            indiceVarianteActual = (indiceVarianteActual + 1) % listaVariantesHORSE.size
         }
 
-        val varianteActual = listaVariantes[indiceVarianteActual]
+        val varianteActual = listaVariantesHORSE[indiceVarianteActual]
 
         // Recargar fichas si alguien se quedó en 0
         val jugadoresListos = estadoPrevio.jugadores.map { j ->
@@ -137,12 +142,9 @@ class MesaViewModel(
     }
 
     fun configurarPartida(nuevaVariante: Variante, nuevaSemilla: Long?, reiniciarFichas: Boolean) {
-        if (!esAnfitrion) return
         botTurnJob?.cancel()
 
-        modoPartida = ModoPartida.desdeVariante(nuevaVariante)
-        listaVariantes = modoPartida.variantes
-        indiceVarianteActual = 0
+        indiceVarianteActual = listaVariantesHORSE.indexOf(nuevaVariante).let { if (it >= 0) it else 0 }
         generadorActual = MazoAleatorio(nuevaSemilla)
 
         val estadoPrevio = _uiState.value.estadoMano
@@ -163,7 +165,6 @@ class MesaViewModel(
             it.copy(
                 estadoMano = nuevoEstado,
                 manoEnVariante = 1,
-                manosPorVariante = 1,
                 semillaConfigurada = nuevaSemilla,
                 mostrarDialogoConfiguracion = false,
                 accionesLegales = if (nuevoEstado.jugadorEnTurno?.esHumano == true) {
@@ -178,7 +179,6 @@ class MesaViewModel(
     }
 
     fun abrirDialogoConfiguracion(abrir: Boolean) {
-        if (!esAnfitrion) return
         _uiState.update { it.copy(mostrarDialogoConfiguracion = abrir) }
     }
 
@@ -204,14 +204,14 @@ class MesaViewModel(
 
     private fun revisarTurnoBot(estado: EstadoMano) {
         botTurnJob?.cancel()
-        if (!esAnfitrion || estado.manoTerminada) return
+        if (estado.manoTerminada) return
 
         val enTurno = estado.jugadorEnTurno
-        val esAsientoHumano = enTurno != null && idsActivosPorAsiento.containsKey(enTurno.asiento)
-        if (enTurno != null && !enTurno.esHumano && !esAsientoHumano) {
+        if (enTurno != null && !enTurno.esHumano) {
             botTurnJob = viewModelScope.launch {
                 delay(850) // Pausa para que el usuario aprecie el juego del bot
-                val accionBot = motor.decidirAccionBot(estado)
+                val legales = motor.accionesLegales(estado)
+                val accionBot = estrategias.getValue(enTurno.asiento).proponer(estado, legales)
                 when (val resultado = motor.aplicar(estado, accionBot)) {
                     is ResultadoAccion.Aplicada -> actualizarEstado(resultado.estado)
                     is ResultadoAccion.Rechazada -> actualizarEstado(estado)
@@ -219,62 +219,6 @@ class MesaViewModel(
             }
         }
     }
-
-    fun ejecutarAccionJugador(jugadorId: String, accion: Accion) {
-        if (!esAnfitrion) return
-        val estadoActual = _uiState.value.estadoMano
-        val asientoEnTurno = estadoActual.turnoActual ?: return
-        if (idsActivosPorAsiento[asientoEnTurno] != jugadorId || estadoActual.manoTerminada) return
-        when (val resultado = motor.aplicar(estadoActual, accion)) {
-            is ResultadoAccion.Aplicada -> actualizarEstado(resultado.estado)
-            is ResultadoAccion.Rechazada -> Unit
-        }
-    }
-
-    fun desconectarJugador(jugadorId: String) {
-        if (!esAnfitrion) return
-        val asiento = idsActivosPorAsiento.entries.firstOrNull { it.value == jugadorId }?.key ?: return
-        idsActivosPorAsiento.remove(asiento)
-        val estadoActual = _uiState.value.estadoMano
-        if (estadoActual.turnoActual == asiento && !estadoActual.manoTerminada) {
-            _uiState.update { it.copy(accionesLegales = emptySet(), esTurnoHumano = false) }
-            revisarTurnoBot(estadoActual)
-        }
-    }
-
-    fun aplicarEstadoRemoto(remoto: EstadoRemoto) {
-        if (esAnfitrion) return
-        botTurnJob?.cancel()
-        val jugadores = remoto.estado.jugadores.map { jugador ->
-            jugador.copy(esHumano = remoto.idsPorAsiento[jugador.asiento] == idJugadorLocal)
-        }
-        val porAsiento = jugadores.associateBy { it.asiento }
-        val estado = remoto.estado.copy(
-            jugadores = jugadores,
-            ganadores = remoto.estado.ganadores.map { ganador ->
-                ganador.copy(jugador = porAsiento[ganador.jugador.asiento] ?: ganador.jugador)
-            }
-        )
-        val esMiTurno = estado.jugadorEnTurno?.let { remoto.idsPorAsiento[it.asiento] == idJugadorLocal } == true
-        _uiState.update {
-            it.copy(
-                estadoMano = estado,
-                manoEnVariante = remoto.manoEnVariante,
-                manosPorVariante = remoto.manosPorVariante,
-                accionesLegales = if (esMiTurno) motor.accionesLegales(estado) else emptySet(),
-                esTurnoHumano = esMiTurno,
-                evaluacionHumanoTexto = calcularEvaluacionHumano(estado)
-            )
-        }
-    }
-
-    fun crearEstadoRemoto(): EstadoRemoto = EstadoRemoto(
-        estado = _uiState.value.estadoMano,
-        idsPorAsiento = idsPorAsiento,
-        modo = modoPartida,
-        manoEnVariante = _uiState.value.manoEnVariante,
-        manosPorVariante = _uiState.value.manosPorVariante
-    )
 
     private fun calcularEvaluacionHumano(estado: EstadoMano): String? {
         val humano = estado.jugadores.firstOrNull { it.esHumano } ?: return null
@@ -297,3 +241,4 @@ class MesaViewModel(
         }
     }
 }
+
