@@ -1,7 +1,7 @@
 package poker.variantes
 
+import poker.bots.ValoradorDeMano
 import poker.evaluacion.ResultadoEvaluacion
-import poker.modelo.Calle
 import poker.modelo.Carta
 import poker.modelo.Jugador
 import poker.modelo.Variante
@@ -38,22 +38,12 @@ data class ResultadoReparto(
     val mazoRestante: List<Carta>
 )
 
-interface ReglasVariante {
+/** Reglas de una variante: cómo se reparte (heredado de [PlanDeReparto]), cómo se evalúa y cómo la valoran los bots. */
+interface ReglasVariante : PlanDeReparto {
     val variante: Variante
-    val esJuegoComunitario: Boolean
-    val calles: List<Calle>
 
-    fun repartirInicial(
-        mazo: List<Carta>,
-        jugadores: List<Jugador>
-    ): ResultadoReparto
-
-    fun repartirCalle(
-        calle: Calle,
-        mazo: List<Carta>,
-        jugadores: List<Jugador>,
-        comunitarias: List<Carta>
-    ): ResultadoReparto
+    /** Cómo valoran los bots una mano en esta variante. */
+    val valorador: ValoradorDeMano
 
     fun evaluarJugador(
         cartasPropias: List<Carta>,
