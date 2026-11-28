@@ -1,6 +1,5 @@
 package poker.motor
 
-import poker.evaluacion.ResultadoEvaluacion
 import poker.modelo.Accion
 import poker.modelo.Calle
 import poker.modelo.Carta
@@ -9,21 +8,12 @@ import poker.modelo.GeneradorDeMazo
 import poker.modelo.Jugador
 import poker.modelo.MazoAleatorio
 import poker.modelo.Variante
-import poker.variantes.HoldemReglas
-import poker.variantes.OmahaReglas
-import poker.variantes.RazzReglas
 import poker.variantes.ReglasVariante
-import poker.variantes.SevenCardHiLoReglas
-import poker.variantes.SevenCardStudReglas
+import poker.variantes.PorcionEvaluada
 
 class MotorDeJuego(
-    private val reglas: Map<Variante, ReglasVariante> = mapOf(
-        Variante.HOLDEM to HoldemReglas(),
-        Variante.OMAHA to OmahaReglas(),
-        Variante.RAZZ to RazzReglas(),
-        Variante.SEVEN_CARD_STUD to SevenCardStudReglas(),
-        Variante.SEVEN_CARD_HI_LO to SevenCardHiLoReglas()
-    )
+    private val reglas: Map<Variante, ReglasVariante>,
+    private val calculadorDeBotes: CalculadorDeBotes = CalculadorDeBotes()
 ) {
 
     fun reglasPara(variante: Variante): ReglasVariante =
@@ -38,7 +28,7 @@ class MotorDeJuego(
     ): EstadoMano {
         require(jugadoresActuales.size >= 2) { "Se requieren al menos 2 jugadores" }
         val regla = reglasPara(variante)
-        val mazo = generadorDeMazo.nuevoMazo().toMutableList()
+        val mazo = generadorDeMazo.nuevoMazo()
 
         val ciegaChica = ciegaGrande / 2
         val n = jugadoresActuales.size
@@ -76,7 +66,9 @@ class MotorDeJuego(
         }
 
         // Reparto inicial según la variante polimórfica
-        val (repartidos, comunitarias) = regla.repartirInicial(mazo, preparados)
+        val repartoInicial = regla.repartirInicial(mazo, preparados)
+        val repartidos = repartoInicial.jugadores
+        val comunitarias = repartoInicial.comunitarias
         val primeraCalle = regla.calles.first()
 
         val primerTurnoIndex = (dealerIndex + 3) % n
@@ -87,7 +79,7 @@ class MotorDeJuego(
             calle = primeraCalle,
             jugadores = repartidos,
             comunitarias = comunitarias,
-            mazoRestante = mazo.toList(),
+            mazoRestante = repartoInicial.mazoRestante,
             bote = 0,
             dealerIndex = dealerIndex,
             turnoActual = asientoPrimerTurno,
@@ -139,12 +131,18 @@ class MotorDeJuego(
         return opciones
     }
 
-    fun aplicar(estado: EstadoMano, accion: Accion): EstadoMano {
+    fun aplicar(estado: EstadoMano, accion: Accion): ResultadoAccion {
         val legales = accionesLegales(estado)
-        require(legales.any { coincideAccion(it, accion) }) {
-            "Acción no legal: $accion. Acciones legales: $legales"
+        if (legales.none { coincideAccion(it, accion) }) {
+            return ResultadoAccion.Rechazada(
+                motivo = "Acción no legal: $accion",
+                accionesLegales = legales
+            )
         }
+        return ResultadoAccion.Aplicada(aplicarAccionLegal(estado, accion))
+    }
 
+    private fun aplicarAccionLegal(estado: EstadoMano, accion: Accion): EstadoMano {
         val jugador = estado.jugadorEnTurno ?: error("No hay jugador en turno")
         val indexJugador = estado.jugadores.indexOfFirst { it.asiento == jugador.asiento }
 
@@ -239,7 +237,7 @@ class MotorDeJuego(
         }
 
         // Buscar siguiente turno
-        val siguienteAsiento = buscarSiguienteTurno(nuevosJugadores, estado.turnoActual!!, nuevaApuestaMasAlta)
+        val siguienteAsiento = buscarSiguienteTurno(estado, nuevosJugadores, estado.turnoActual!!, nuevaApuestaMasAlta)
 
         if (siguienteAsiento != null) {
             // Continúa la ronda de apuestas en esta misma calle
@@ -266,14 +264,15 @@ class MotorDeJuego(
     private fun coincideAccion(a: Accion, b: Accion): Boolean = when {
         a is Accion.Fold && b is Accion.Fold -> true
         a is Accion.Check && b is Accion.Check -> true
-        a is Accion.Call && b is Accion.Call -> true
-        a is Accion.Bet && b is Accion.Bet -> true
-        a is Accion.Raise && b is Accion.Raise -> true
-        a is Accion.AllIn && b is Accion.AllIn -> true
+        a is Accion.Call && b is Accion.Call -> a.monto == b.monto
+        a is Accion.Bet && b is Accion.Bet -> a.monto == b.monto
+        a is Accion.Raise && b is Accion.Raise -> a.monto == b.monto
+        a is Accion.AllIn && b is Accion.AllIn -> a.monto == b.monto
         else -> false
     }
 
     private fun buscarSiguienteTurno(
+        estado: EstadoMano,
         jugadores: List<Jugador>,
         asientoActual: Int,
         apuestaMasAlta: Int
@@ -287,7 +286,31 @@ class MotorDeJuego(
                 return candidate.asiento
             }
         }
+
+        // Si nadie ha apostado ni subido en esta calle, los jugadores que van después
+        // en el orden de acción todavía no han actuado (pasar o la opción de la ciega grande)
+        if (apuestaMasAlta == apuestaInicialDeLaCalle(estado)) {
+            val orden = ordenDeAccionEnCalle(estado)
+            return orden
+                .drop(orden.indexOf(asientoActual) + 1)
+                .firstOrNull { asiento -> jugadores.first { it.asiento == asiento }.estado == EstadoJugador.Activo }
+        }
         return null
+    }
+
+    // Apuesta con la que arranca la calle: la ciega grande en la primera, cero en las demás
+    private fun apuestaInicialDeLaCalle(estado: EstadoMano): Int =
+        if (estado.calle == reglasPara(estado.variante).calles.first()) estado.ciegaGrande else 0
+
+    // Asientos en el orden en que actúan en la calle actual
+    private fun ordenDeAccionEnCalle(estado: EstadoMano): List<Int> {
+        val n = estado.jugadores.size
+        val primerIndice = if (estado.calle == reglasPara(estado.variante).calles.first()) {
+            estado.dealerIndex + 3
+        } else {
+            estado.dealerIndex + 1
+        }
+        return (0 until n).map { estado.jugadores[(primerIndice + it) % n].asiento }
     }
 
     private fun avanzarCalle(estado: EstadoMano): EstadoMano {
@@ -305,13 +328,14 @@ class MotorDeJuego(
 
         // Siguiente calle
         val siguienteCalle = calles[indiceCalleActual + 1]
-        val mazoMutable = estado.mazoRestante.toMutableList()
-        val (jugadoresRepartidos, nuevasComunitarias) = regla.repartirCalle(
+        val reparto = regla.repartirCalle(
             calle = siguienteCalle,
-            mazo = mazoMutable,
+            mazo = estado.mazoRestante,
             jugadores = jugadoresLimpio,
             comunitarias = estado.comunitarias
         )
+        val jugadoresRepartidos = reparto.jugadores
+        val nuevasComunitarias = reparto.comunitarias
 
         // Primer jugador activo a la izquierda del dealer
         val n = jugadoresRepartidos.size
@@ -324,92 +348,57 @@ class MotorDeJuego(
             }
         }
 
-        return estado.copy(
+        val nuevoEstado = estado.copy(
             calle = siguienteCalle,
             jugadores = jugadoresRepartidos,
             comunitarias = nuevasComunitarias,
-            mazoRestante = mazoMutable.toList(),
+            mazoRestante = reparto.mazoRestante,
             bote = totalBote,
             turnoActual = primerTurno,
             apuestaMasAlta = 0,
             subidaMinima = estado.ciegaGrande,
             historialAcciones = estado.historialAcciones + "--- Entrando a ${siguienteCalle.etiqueta} ---"
         )
+        // Si todos los jugadores que siguen en la mano están all-in, no hay
+        // más decisiones posibles: repartir las calles restantes y resolver.
+        return if (primerTurno == null) avanzarCalle(nuevoEstado) else nuevoEstado
     }
 
     private fun resolverShowdown(estado: EstadoMano): EstadoMano {
         val regla = reglasPara(estado.variante)
         val contendientes = estado.jugadores.filter { it.estaEnJuego }
-        val totalBote = estado.bote
         val ganadores = mutableListOf<GanadorInfo>()
         val jugadoresActualizados = estado.jugadores.toMutableList()
+        val distribucion = calculadorDeBotes.calcular(estado.jugadores)
+        distribucion.devoluciones.forEach { (asiento, monto) ->
+            val idx = jugadoresActualizados.indexOfFirst { it.asiento == asiento }
+            check(idx >= 0) { "Devolución para asiento inexistente: $asiento" }
+            val jugador = jugadoresActualizados[idx]
+            jugadoresActualizados[idx] = jugador.copy(pila = jugador.pila + monto)
+        }
+        val ordenAsientos = ordenDesdeDealer(estado)
 
-        if (estado.variante == Variante.SEVEN_CARD_HI_LO) {
-            // Split Pot Hi-Lo
-            val evalAltas = contendientes.map { j ->
-                Pair(j, regla.evaluarJugador(j.cartas, estado.comunitarias))
-            }
-            val mejorAlta = evalAltas.maxByOrNull { it.second }!!
+        distribucion.botes.forEachIndexed { indiceBote, bote ->
+            val elegibles = contendientes.filter { it.asiento in bote.asientosElegibles }
+            val porciones = regla.evaluarPorciones(elegibles, estado.comunitarias)
+            require(porciones.isNotEmpty()) { "Las reglas deben devolver al menos una porción evaluada" }
+            require(porciones.sumOf { it.peso } > 0) { "El peso total de porciones debe ser positivo" }
+            val pesoTotal = porciones.sumOf { it.peso }
+            val montosPorcion = repartirEntrePorciones(bote.monto, porciones, pesoTotal)
 
-            val evalBajas = contendientes.mapNotNull { j ->
-                regla.evaluarJugadorBajo(j.cartas, estado.comunitarias)?.let { Pair(j, it) }
-            }
-
-            if (evalBajas.isEmpty()) {
-                // Ninguna mano baja califica (ninguna <= 8) -> Alta se lleva todo (Scoop)
-                val idx = jugadoresActualizados.indexOfFirst { it.asiento == mejorAlta.first.asiento }
-                jugadoresActualizados[idx] = jugadoresActualizados[idx].copy(
-                    pila = jugadoresActualizados[idx].pila + totalBote
-                )
-                ganadores.add(
-                    GanadorInfo(
-                        mejorAlta.first,
-                        totalBote,
-                        "Mano Alta (${mejorAlta.second.categoria.nombre}) - No hubo baja calificada (Scoop)"
-                    )
-                )
-            } else {
-                val mejorBaja = evalBajas.maxByOrNull { it.second }!!
-                val mitad = totalBote / 2
-                val resto = totalBote - mitad
-
-                val idxAlta = jugadoresActualizados.indexOfFirst { it.asiento == mejorAlta.first.asiento }
-                jugadoresActualizados[idxAlta] = jugadoresActualizados[idxAlta].copy(
-                    pila = jugadoresActualizados[idxAlta].pila + mitad
-                )
-                ganadores.add(GanadorInfo(mejorAlta.first, mitad, "Mano Alta (${mejorAlta.second.categoria.nombre})"))
-
-                val idxBaja = jugadoresActualizados.indexOfFirst { it.asiento == mejorBaja.first.asiento }
-                jugadoresActualizados[idxBaja] = jugadoresActualizados[idxBaja].copy(
-                    pila = jugadoresActualizados[idxBaja].pila + resto
-                )
-                ganadores.add(GanadorInfo(mejorBaja.first, resto, "Mano Baja (Calificada 8-or-Better)", esBaja = true))
-            }
-        } else {
-            // Bote normal
-            val evaluaciones = contendientes.map { j ->
-                Pair(j, regla.evaluarJugador(j.cartas, estado.comunitarias))
-            }
-            val maxEval = evaluaciones.maxByOrNull { it.second }!!.second
-            val ganadoresMano = evaluaciones.filter { it.second.compareTo(maxEval) == 0 }
-
-            val premioPorGanador = totalBote / ganadoresMano.size
-            for (g in ganadoresMano) {
-                val idx = jugadoresActualizados.indexOfFirst { it.asiento == g.first.asiento }
-                jugadoresActualizados[idx] = jugadoresActualizados[idx].copy(
-                    pila = jugadoresActualizados[idx].pila + premioPorGanador
-                )
-                ganadores.add(
-                    GanadorInfo(
-                        g.first,
-                        premioPorGanador,
-                        "${g.second.categoria.nombre} (${g.second.desempate.joinToString()})"
-                    )
+            porciones.forEachIndexed { indicePorcion, porcion ->
+                distribuirPorcion(
+                    porcion = porcion,
+                    monto = montosPorcion[indicePorcion],
+                    ordenAsientos = ordenAsientos,
+                    jugadoresActualizados = jugadoresActualizados,
+                    ganadores = ganadores,
+                    etiquetaBote = if (distribucion.botes.size > 1) "Bote ${indiceBote + 1} · " else ""
                 )
             }
         }
 
-        val resumen = ganadores.joinToString(" y ") { "${it.jugador.nombre} ($${it.montoGanado}: ${it.descripcionMano})" }
+        val resumen = ganadores.joinToString(" y ") { "${it.jugador.nombre} (+$${it.montoGanado}: ${it.descripcionMano})" }
 
         return estado.copy(
             jugadores = jugadoresActualizados,
@@ -422,37 +411,63 @@ class MotorDeJuego(
         )
     }
 
-    // Inteligencia artificial simple para bots
-    fun decidirAccionBot(estado: EstadoMano): Accion {
-        val legales = accionesLegales(estado)
-        if (legales.isEmpty()) return Accion.Fold
+    private fun distribuirPorcion(
+        porcion: PorcionEvaluada,
+        monto: Int,
+        ordenAsientos: List<Int>,
+        jugadoresActualizados: MutableList<Jugador>,
+        ganadores: MutableList<GanadorInfo>,
+        etiquetaBote: String
+    ) {
+        val mejor = porcion.evaluaciones.maxOf { it.resultado }
+        val empatados = porcion.evaluaciones.filter { it.resultado.compareTo(mejor) == 0 }
+        val ordenados = empatados.sortedBy { ordenAsientos.indexOf(it.asiento) }
+        val premioBase = monto / ordenados.size
+        var fichasRestantes = monto % ordenados.size
 
-        if (legales.contains(Accion.Check)) {
-            // 70% pasar, 30% apostar si es legal
-            val bet = legales.filterIsInstance<Accion.Bet>().firstOrNull()
-            return if (bet != null && (1..10).random() > 7) bet else Accion.Check
+        ordenados.forEach { evaluacion ->
+            val premio = premioBase + if (fichasRestantes-- > 0) 1 else 0
+            val jugadorIndex = jugadoresActualizados.indexOfFirst { it.asiento == evaluacion.asiento }
+            check(jugadorIndex >= 0) { "Evaluación de asiento inexistente: ${evaluacion.asiento}" }
+            val jugador = jugadoresActualizados[jugadorIndex]
+            jugadoresActualizados[jugadorIndex] = jugador.copy(pila = jugador.pila + premio)
+            ganadores.add(
+                GanadorInfo(
+                    jugador = jugador,
+                    montoGanado = premio,
+                    descripcionMano = "$etiquetaBote${porcion.nombre} (${evaluacion.resultado.categoria.nombre}: ${evaluacion.resultado.desempate.joinToString()})",
+                    esBaja = porcion.esBaja
+                )
+            )
         }
+    }
 
-        val call = legales.filterIsInstance<Accion.Call>().firstOrNull()
-        if (call != null) {
-            val jugador = estado.jugadorEnTurno ?: return Accion.Fold
-            // Si el monto a igualar es menor o igual al 25% de su pila, suele igualar
-            if (call.monto <= jugador.pila * 0.35 || call.monto <= estado.ciegaGrande * 2) {
-                return call
-            }
-            // En ocasiones sube si tiene fichas
-            val raise = legales.filterIsInstance<Accion.Raise>().firstOrNull()
-            if (raise != null && (1..10).random() == 1) {
-                return raise
-            }
-            return Accion.Fold
+    private fun repartirEntrePorciones(
+        total: Int,
+        porciones: List<PorcionEvaluada>,
+        pesoTotal: Int
+    ): List<Int> {
+        val montos = porciones.map { (total.toLong() * it.peso / pesoTotal).toInt() }.toMutableList()
+        var restantes = total - montos.sum()
+        val ordenResto = porciones.indices.sortedWith(
+            compareByDescending<Int> { (total.toLong() * porciones[it].peso) % pesoTotal }
+                .thenByDescending { porciones[it].prioridadResto }
+                .thenBy { it }
+        )
+        var cursor = 0
+        while (restantes > 0) {
+            montos[ordenResto[cursor % ordenResto.size]]++
+            restantes--
+            cursor++
         }
+        return montos
+    }
 
-        val allIn = legales.filterIsInstance<Accion.AllIn>().firstOrNull()
-        if (allIn != null && (1..10).random() > 6) {
-            return allIn
+    private fun ordenDesdeDealer(estado: EstadoMano): List<Int> {
+        val jugadores = estado.jugadores
+        if (jugadores.isEmpty()) return emptyList()
+        return (1..jugadores.size).map { desplazamiento ->
+            jugadores[(estado.dealerIndex + desplazamiento) % jugadores.size].asiento
         }
-
-        return legales.firstOrNull { it is Accion.Fold } ?: legales.first()
     }
 }
