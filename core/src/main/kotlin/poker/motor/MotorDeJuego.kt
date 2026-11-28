@@ -445,38 +445,4 @@ class MotorDeJuego(
             jugadores[(estado.dealerIndex + desplazamiento) % jugadores.size].asiento
         }
     }
-
-    // Inteligencia artificial simple para bots
-    fun decidirAccionBot(estado: EstadoMano): Accion {
-        val legales = accionesLegales(estado)
-        if (legales.isEmpty()) return Accion.Fold
-
-        if (legales.contains(Accion.Check)) {
-            // 70% pasar, 30% apostar si es legal
-            val bet = legales.filterIsInstance<Accion.Bet>().firstOrNull()
-            return if (bet != null && (1..10).random() > 7) bet else Accion.Check
-        }
-
-        val call = legales.filterIsInstance<Accion.Call>().firstOrNull()
-        if (call != null) {
-            val jugador = estado.jugadorEnTurno ?: return Accion.Fold
-            // Si el monto a igualar es menor o igual al 25% de su pila, suele igualar
-            if (call.monto <= jugador.pila * 0.35 || call.monto <= estado.ciegaGrande * 2) {
-                return call
-            }
-            // En ocasiones sube si tiene fichas
-            val raise = legales.filterIsInstance<Accion.Raise>().firstOrNull()
-            if (raise != null && (1..10).random() == 1) {
-                return raise
-            }
-            return Accion.Fold
-        }
-
-        val allIn = legales.filterIsInstance<Accion.AllIn>().firstOrNull()
-        if (allIn != null && (1..10).random() > 6) {
-            return allIn
-        }
-
-        return legales.firstOrNull { it is Accion.Fold } ?: legales.first()
-    }
 }
